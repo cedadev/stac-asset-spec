@@ -25,17 +25,16 @@
 
 ## Overview
 
-This document explains the structure and content of a SpatioTemporal Asset Catalog (STAC) Asset. An **Asset** is a
-[GeoJSON](http://geojson.org/) [Feature](https://tools.ietf.org/html/rfc7946#section-3.2) augmented with
-[foreign members](https://tools.ietf.org/html/rfc7946#section-6) relevant to a STAC object.
-An Asset is an object that contains a URI to data associated with the Item that can be downloaded
+This document explains the structure and content of a SpatioTemporal Asset Catalog (STAC) Asset. 
+An **Asset** is a [GeoJSON](http://geojson.org/) [Feature](https://tools.ietf.org/html/rfc7946#section-3.2) 
+augmented with [foreign members](https://tools.ietf.org/html/rfc7946#section-6) relevant to a 
+STAC object.
+An **Asset** is an object that contains a URI to data associated with the Item that can be downloaded
 or streamed. 
 
 - Examples:
-  - See the [minimal example](../examples/simple-item.json),
-    as well as a [more fleshed example](../examples/core-item.json) that contains a number of current best practices.
-  - Real world [implementations](https://stacindex.org/catalogs) are also available.
-- [JSON Schema](json-schema/item.json)
+  - See the [minimal example](../examples/simple-asset.json),
+- [JSON Schema](json-schema/asset.json)
 
 ## Asset fields
 
@@ -50,6 +49,12 @@ inherited from GeoJSON.
 | id         | string                                                                     | **REQUIRED.** Provider identifier. The ID should be unique within the  [Item](../item-spec/item-spec.md) that contains the Asset. |
 | links      | \[[Link Object](#link-object)]                                             | **REQUIRED.** List of link objects to resources and related URLs. A link with the `rel` set to `self` is strongly recommended. |
 | item | string                                                                           | **REQUIRED** The `id` of the STAC Item this Asset references to (see [`item` relation type](#relation-types)). This field provides an easy way for a user to search for any Assets that belong in a specified Item. Must be a non-empty string. |
+| href        | string    | **REQUIRED.** URI to the asset object. Relative and absolute URI are both allowed. |
+| title       | string    | The displayed title for clients and users. |
+| description | string    | A description of the Asset providing additional details, such as how it was processed or created. [CommonMark 0.29](http://commonmark.org/) syntax MAY be used for rich text representation. |
+| type        | string    | [Media type](#asset-media-type) of the asset. See the [common media types](../best-practices.md#common-media-types-in-stac) in the best practice doc for commonly used asset types. |
+| roles       | \[string] | The [semantic roles](#asset-roles) of the asset, similar to the use of `rel` in links. |
+
 
 ### Additional Field Information
 

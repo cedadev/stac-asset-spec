@@ -1,0 +1,32 @@
+{
+  "id": "asdfsgsa",
+  "type": "image/jpeg",
+  "title": "thumbnail",
+  "roles": [
+    "thumbnail"
+  ],
+  "properties": {
+    "datetime": "2020-12-11T22:38:32125000Z"
+  },
+  "item": "dsfdsfs",
+  "links": [
+    {
+      "rel": "item",
+      "href": "./dsfdsfs.json",
+      "type": "application/json",
+      "title": "Simple Example Item"
+    },
+    {
+      "rel": "parent",
+      "href": "./dsfdsfs.json",
+      "type": "application/json",
+      "title": "Simple Example Item"
+    },
+    {
+      "rel": "root",
+      "href": "./collection.json",
+      "type": "application/json",
+      "title": "Simple Example Collection"
+    }
+  ]
+}

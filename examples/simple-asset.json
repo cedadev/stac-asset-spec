@@ -1,9 +1,16 @@
 {
   "id": "asdfsgsa",
-  "type": "image/jpeg",
-  "title": "thumbnail",
+  "type": "Feature",
+  "media_type": "image/jpeg",
+  "bbox": [
+    172.91173669923782,
+    1.3438851951615003,
+    172.95469614953714,
+    1.3690476620161975
+  ],
+  "title": "data_file",
   "roles": [
-    "thumbnail"
+    "data"
   ],
   "properties": {
     "datetime": "2020-12-11T22:38:32125000Z"

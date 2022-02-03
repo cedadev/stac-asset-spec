@@ -52,7 +52,7 @@ inherited from GeoJSON.
 | href        | string    | **REQUIRED.** URI to the asset object. Relative and absolute URI are both allowed. |
 | title       | string    | The displayed title for clients and users. |
 | description | string    | A description of the Asset providing additional details, such as how it was processed or created. [CommonMark 0.29](http://commonmark.org/) syntax MAY be used for rich text representation. |
-| type        | string    | [Media type](#asset-media-type) of the asset. See the [common media types](../best-practices.md#common-media-types-in-stac) in the best practice doc for commonly used asset types. |
+| media_type  | string    | [Media type](#asset-media-type) of the asset. See the [common media types](../best-practices.md#common-media-types-in-stac) in the best practice doc for commonly used asset types. |
 | roles       | \[string] | The [semantic roles](#asset-roles) of the asset, similar to the use of `rel` in links. |
 
 

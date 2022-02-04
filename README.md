@@ -54,7 +54,7 @@ inherited from GeoJSON.
 
 #### stac_version
 
-In general, STAC versions can be mixed, but please keep the [recommended best practices](../best-practices.md#mixing-stac-versions) in mind.
+In general, STAC versions can be mixed, but please keep the [recommended best practices](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#mixing-stac-versions) in mind.
 
 #### stac_extensions
 
@@ -66,7 +66,7 @@ see the the 'Scope' for each of the extensions.
 #### id
 
 It is important that an Asset identifier is unique within an Item, and that the 
-[Item identifier](../item-spec/item-spec.md#id) in turn is unique within a collection. Then the three can be combined to
+[Item identifier](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#id) in turn is unique within a collection. Then the three can be combined to
 give a globally unique identifier. Assets are *[required](#items)* to have Items.
 
 #### roles
@@ -93,8 +93,8 @@ It is STRONGLY RECOMMENDED to add to each STAC Item
 
 Note that multiple roles per asset are encouraged: pick all the ones that apply. So many should have the 'data' role, and then
 another role to describe how the data is used. For more information on how to use roles see the [Asset 
-Roles](../best-practices.md#asset-roles) section of the Best Practices document. It includes a [list of asset 
-roles](../best-practices.md#list-of-asset-roles) that include many more ideas on roles to use. As they reach more widespread 
+Roles](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#asset-roles) section of the Best Practices document. It includes a [list of asset 
+roles](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#list-of-asset-roles) that include many more ideas on roles to use. As they reach more widespread 
 adoption we will include them here.
 
 ### Properties Object
@@ -102,15 +102,15 @@ adoption we will include them here.
 Additional metadata fields can be added to the GeoJSON Object Properties. See [item-spec](https://github.com/radiantearth/stac-spec/blob/master/item-spec/item-spec.md#properties-object) for ideas.
 
 Providers should include metadata fields that are relevant for users of STAC, but it is recommended
-to [select only those necessary for search](../best-practices.md#field-selection-and-metadata-linking).
+to [select only those necessary for search](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#field-selection-and-metadata-linking).
 Where possible metadata fields should be mapped to the STAC Common Metadata and widely used extensions,
 to enable cross-catalog search on known fields.
 
-- [STAC Common Metadata](common-metadata.md#stac-common-metadata) - A list of fields commonly used
+- [STAC Common Metadata](https://github.com/radiantearth/stac-spec/blob/master/item-spec/common-metadata.md#stac-common-metadata) - A list of fields commonly used
 throughout all domains. These optional fields are included for STAC Items by default.
-- [Extensions](../extensions/README.md) - Additional fields that are more specific,
+- [Extensions](https://github.com/radiantearth/stac-spec/blob/master/extensions/README.md) - Additional fields that are more specific,
 such as [EO](https://github.com/stac-extensions/eo), [View](https://github.com/stac-extensions/view).
-- [Custom Extensions](../extensions/README.md#extending-stac) - It is generally allowed to add custom
+- [Custom Extensions](https://github.com/radiantearth/stac-spec/blob/master/extensions/README.md#extending-stac) - It is generally allowed to add custom
 fields but it is recommended to add multiple fields for related values instead of a nested object,
 e.g., two fields `view:azimuth` and `view:off_nadir` instead of a field `view` with an object
 value containing the two fields. The convention (as used within Extensions) is for related fields 
@@ -127,11 +127,11 @@ It is allowed to add additional fields such as a `title` and `type`.
 | ---------- | ------ | ----------- |
 | href       | string | **REQUIRED.** The actual link in the format of an URL. Relative and absolute links are both allowed. |
 | rel        | string | **REQUIRED.** Relationship between the current document and the linked document. See chapter "Relation types" for more information. |
-| type       | string | [Media type](../catalog-spec/catalog-spec.md#media-types) of the referenced entity. |
+| type       | string | [Media type](https://github.com/radiantearth/stac-spec/blob/master/catalog-spec/catalog-spec.md#media-types) of the referenced entity. |
 | title      | string | A human readable title to be used in rendered displays of the link. |
 
 For a full discussion of the situations where relative and absolute links are recommended see the
-['Use of links'](../best-practices.md#use-of-links) section of the STAC best practices.
+['Use of links'](https://github.com/radiantearth/stac-spec/blob/master/best-practices.md#use-of-links) section of the STAC best practices.
 
 #### Relation types
 
@@ -162,4 +162,4 @@ A STAC Item is a GeoJSON file ([RFC 7946](https://tools.ietf.org/html/rfc7946)),
 There are emerging best practices, which in time will evolve in to specification extensions for
 particular domains or uses.
 
-The [extensions page](../extensions/README.md) gives an overview about relevant extensions for STAC Items.
+The [extensions page](https://github.com/radiantearth/stac-spec/blob/master/extensions/README.md) gives an overview about relevant extensions for STAC Items.

@@ -1,0 +1,173 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "https://github.com/cedadev/asset-spec/blob/master/json-schema/asset.json",
+  "type": "object",
+  "title": "STAC Asset",
+  "description": "This object represents the metadata for an Asset in a SpatioTemporal Asset Catalog.",
+  "allOf": [
+    {
+      "$ref": "#/definitions/core"
+    }
+  ],
+  "definitions": {
+    "core": {
+      "allOf": [
+        {
+          "$ref": "\"https://geojson.org/schema/Feature.json\""
+        },
+        {
+          "oneOf": [
+            {
+              "type": "object",
+              "required": [
+                "geometry",
+                "bbox"
+              ],
+              "properties": {
+                "geometry": {
+                  "$ref": "https://geojson.org/schema/Geometry.json"
+                },
+                "bbox": {
+                  "type": "array",
+                  "oneOf": [
+                    {
+                      "minItems": 4,
+                      "maxItems": 4
+                    },
+                    {
+                      "minItems": 6,
+                      "maxItems": 6
+                    }
+                  ],
+                  "items": {
+                    "type": "number"
+                  }
+                }
+              }
+            },
+            {
+              "type": "object",
+              "required": [
+                "geometry"
+              ],
+              "properties": {
+                "geometry": {
+                  "type": "null"
+                },
+                "bbox": {
+                  "not": {}
+                }
+              }
+            }
+          ]
+        },
+        {
+          "type": "object",
+          "required": [
+            "stac_version",
+            "id",
+            "links",
+            "properties",
+            "href",
+            "item"
+          ],
+          "properties": {
+            "stac_version": {
+              "title": "STAC version",
+              "type": "string",
+              "const": "1.0.0"
+            },
+            "id": {
+              "title": "Provider ID",
+              "description": "Provider Asset ID",
+              "type": "string",
+              "minLength": 1
+            },
+            "links": {
+              "title": "Item links",
+              "description": "Links to item relations",
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/link"
+              }
+            },
+            "href": {
+              "title": "Asset reference",
+              "type": "string",
+              "format": "iri-reference",
+              "minLength": 1
+            },
+            "properties": {
+              "title": "Asset properties",
+              "description": "Additional asset properties",
+              "type": "object"
+            },
+            "roles": {
+              "title": "Asset roles",
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "description": {
+              "title": "Asset description",
+              "type": "string"
+            },
+            "media_type": {
+              "title": "Asset media type",
+              "type": "string"
+            },
+            "title": {
+              "title": "Asset title",
+              "type": "string"
+            },
+            "item": {
+              "title": "Collection ID",
+              "description": "The ID of the STAC Collection this Item references to.",
+              "type": "string",
+              "minLength": 1
+            },
+            "stac_extensions": {
+              "title": "STAC extensions",
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "title": "Reference to a JSON Schema",
+                "type": "string",
+                "format": "iri"
+              }
+            }
+          }
+        }
+      ]
+    },
+    "link": {
+      "type": "object",
+      "required": [
+        "rel",
+        "href"
+      ],
+      "properties": {
+        "href": {
+          "title": "Link reference",
+          "type": "string",
+          "format": "iri-reference",
+          "minLength": 1
+        },
+        "rel": {
+          "title": "Link relation type",
+          "type": "string",
+          "minLength": 1
+        },
+        "type": {
+          "title": "Link type",
+          "type": "string"
+        },
+        "title": {
+          "title": "Link title",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -29,7 +29,7 @@ or streamed.
 
 ## Asset fields
 
-This object describes a STAC Item. The fields `id`, `type`, `bbox`, `geometry` and `properties` are
+This object describes a STAC Asset. The fields `id`, `type`, `bbox`, `geometry` and `properties` are
 inherited from GeoJSON.
 
 | Field Name | Type                                                  | Description |
@@ -58,7 +58,7 @@ In general, STAC versions can be mixed, but please keep the [recommended best pr
 
 #### stac_extensions
 
-A list of extensions the Item implements.
+A list of extensions the Asset implements.
 The list consists of URLs to JSON Schema files that can be used for validation.
 This list must only contain extensions that extend the Asset specification itself,
 see the the 'Scope' for each of the extensions.
@@ -86,10 +86,6 @@ Like the Link `rel` field, the `roles` field can be given any value, however her
 | overview  | An asset that represents a possibly larger view than the thumbnail of the Item, for example, a true color composite of multi-band data. |
 | data      | The data itself. This is a suggestion for a common role for data files to be used in case data providers don't come up with their own names and semantics. |
 | metadata  | A metadata sidecar file describing the data in this Item, for example the Landsat-8 MTL file. |
-
-It is STRONGLY RECOMMENDED to add to each STAC Item
-- a thumbnail with the role `thumbnail` for preview purposes
-- one or more data file although it doesn't need to use the suggested role `data`
 
 Note that multiple roles per asset are encouraged: pick all the ones that apply. So many should have the 'data' role, and then
 another role to describe how the data is used. For more information on how to use roles see the [Asset 
